@@ -18,34 +18,26 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         fetch("http://localhost:3000/api/user/login", {
-        method: 'POST',
-        body: JSON.stringify({user:this.state}),
-        headers: new Headers({
-            'Content-Type': 'application/json'
+            method: 'POST',
+            body: JSON.stringify({ user: this.state }),
+            headers: new Headers({
+                'Content-Type': 'application/json'
             })
-    }).then((response) => response.json()
-    ).then((data) => {
-        this.props.setToken(data.sessionToken)
-    }) 
-    event.preventDefault()
-}
+        }).then((response) => response.json()
+        ).then((data) => {
+            this.props.setToken(data.sessionToken)
+        })
+        event.preventDefault()
+    }
     render() {
         return (
-            <div>
-                <p>Login</p>
-                    <Form onSubmit={this.handleSubmit} >
-                    <FormGroup>
-                        <Label for="username">Username</Label>
-                         <Input id="li_username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="password">Password</Label>
-                        <Input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
-                    </FormGroup>
-                    <Button type="submit"> Submit </Button>
-                </Form>
-            </div>
+            <form onSubmit={this.handleSubmit} >
+                <input id="li_username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />
+                <input id="li_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
+                <button type="submit"> Submit </button>
+            </form>
         )
     }
 }
 export default Login;
+

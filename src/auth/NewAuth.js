@@ -7,9 +7,9 @@ import '../index.css';
 
 const NewAuth = (props) => {
     return (
-        <div className="fortyfive">
+ 
             <NSignup setToken={props.setToken} />
-        </div>
+ 
     )
 }
 export default NewAuth;

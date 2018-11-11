@@ -18,8 +18,6 @@ class NNavbar extends React.Component {
   
     <div className="nbar">
   <big>React inStyle</big>
- {/* <Auth setToken={this.setSessionState}/> */}
- {/* <Auth setToken={this.setSessionState}/> */}
       </div>
   )
 }
