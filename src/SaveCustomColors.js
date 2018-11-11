@@ -67,13 +67,13 @@ class SaveCustomColors extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} >
-                <label for="color"></label>
+                {/* <label for="color"></label> */}
                 <input id="color" type="text" name="color" value={this.state.color}
                     onChange={this.handleChange} />
-                <label for="fSize"></label>
+                {/* <label for="fSize"></label> */}
                 <input type="text" name="fSize" id="fSize" value={this.state.fSize}
                     onChange={this.handleChange} placeholder="Type" onChange={this.handleChange} />
-                <label for="bordercolor"></label>
+                {/* <label for="bordercolor"></label> */}
                 <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} placeholder="enter bordercolor" onChange={this.handleChange} />
                 <button type="submit">Save color scheme!!</button>
             </form>

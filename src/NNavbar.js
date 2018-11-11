@@ -2,6 +2,7 @@ import React from 'react';
 // import {Link} from 'react-router-dom';
 import './index.css';
 import NewAuth from './auth/NewAuth'
+import Auth from './auth/Auth'
 
 
 class NNavbar extends React.Component {
@@ -17,7 +18,8 @@ class NNavbar extends React.Component {
   
     <div className="nbar">
   <big>React inStyle</big>
- <NewAuth setToken={this.setSessionState}/>
+ {/* <Auth setToken={this.setSessionState}/> */}
+ {/* <Auth setToken={this.setSessionState}/> */}
       </div>
   )
 }

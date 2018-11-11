@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
-// import Navbar from './Navbar';
+import NNavbar from './NNavbar';
 import Footer from './Footer';
 import ReactInStyle from './reactInStyle';
 // import {
@@ -14,9 +14,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar/>   lets make this fire in protected view area */}
+           {/* <NNavbar setToken={this.setSessionState} /> */}
+           <NNavbar />
         <ReactInStyle/>
-        {/* <Footer/> */}
       </div>
     );
   }

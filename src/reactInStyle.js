@@ -1,23 +1,9 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './index.css';
 import NewAuth from './auth/NewAuth';
-// import { Container, Row, Col } from 'reactstrap';
 import Displaysavedcolors from "./Displaysavedcolors";
 import NNavbar from './NNavbar';
-// import DisplaycolorsTable from "./DisplaycolorsTable";
-// import { Form, FromGroup, Label, Input, Button, FormGroup } from 'reactstrap';
-// import SaveCustomColors from './SaveCustomColors';
-// import Signinmodal from "./auth/Signinmodal";
-// import Savedcolorsmodal from "./auth/Signinmodal";
-// import Profilemodal from "./auth/Signinmodal";
-
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Switch
-// } from 'react-router-dom';
 
 class ReactInStyle extends React.Component {
   constructor(props) {
@@ -100,12 +86,11 @@ class ReactInStyle extends React.Component {
 
   // this is from app.js in workoutlogclient
   protectedViews = () => {
-    console.log(this.state.sessionToken)
-    console.log('react instyle file protected view')
-    if (this.state.sessionToken === localStorage.getItem('token')) {
+    console.log('token here?' + this.state.sessionToken)
+      if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
      <div>   
-       <p>in the protexted area</p>
+       <p>in the protected area</p>
         <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
         color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
 
@@ -114,8 +99,7 @@ class ReactInStyle extends React.Component {
     } else {
       return (
 <div>
-        {/* <XXXXXXNavbar setToken={this.setSessionState} /> */}
-        <p>show login / register here</p>
+{/* <NSignup setToken={props.setToken} /> */}
         </div>
       )
     }
@@ -136,7 +120,7 @@ class ReactInStyle extends React.Component {
 
     return (
       <div>
-        <NNavbar setToken={this.setSessionState} />
+        {/* <NNavbar setToken={this.setSessionState} /> */}
             <div id="color-time-id" style={stylesObj} className="container">
         <br />
         <div id="color-time-id2" style={stylesObj2} className="box">
@@ -161,7 +145,7 @@ class ReactInStyle extends React.Component {
           <br />
         </div>
         {/* <p> auth is commited out here. </p> */}
-        {/* <NewAuth setToken={this.setSessionState} /> */}
+<NewAuth setToken={this.setSessionState} />
         {/* <p> uncomment displaysaved colors in reactinstyle</p> */}
         {/* <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
         color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} /> */}

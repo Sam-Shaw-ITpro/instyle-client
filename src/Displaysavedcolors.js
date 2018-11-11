@@ -3,10 +3,6 @@ import { Container, Row, Col } from 'reactstrap';
 import SaveCustomColors from './SaveCustomColors';
 import DisplaycolorsTable from './DisplaycolorsTable';
 
-// let color = this.props.token
-// console.log('SAM Displaysavedcolors file without 1' + color )
-
-
 class Displaysavedcolors extends React.Component {
     constructor(props) {
         super(props)
