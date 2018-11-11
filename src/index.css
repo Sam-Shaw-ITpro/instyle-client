@@ -68,6 +68,22 @@ body {
 /* color: orange; */
 }
 
+.savedcolorsdiv {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  display: inline-block;
+  width: 120px;
+  height: 90px;
+  font-size: 70%;
+  font-weight: bold;
+  /* background-color: black; */
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  margin: 5px;
+  border: 2px solid black;
+}
+
+
 form {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
   display: inline-block;

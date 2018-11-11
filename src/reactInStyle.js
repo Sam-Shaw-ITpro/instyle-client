@@ -93,14 +93,11 @@ class ReactInStyle extends React.Component {
        <p>in the protected area</p>
         <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
         color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
-
 </div>
       )
     } else {
       return (
-<div>
-{/* <NSignup setToken={props.setToken} /> */}
-        </div>
+<div></div>
       )
     }
   }
@@ -120,7 +117,6 @@ class ReactInStyle extends React.Component {
 
     return (
       <div>
-        {/* <NNavbar setToken={this.setSessionState} /> */}
             <div id="color-time-id" style={stylesObj} className="container">
         <br />
         <div id="color-time-id2" style={stylesObj2} className="box">

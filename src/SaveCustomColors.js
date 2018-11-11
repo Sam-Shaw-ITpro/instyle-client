@@ -43,27 +43,6 @@ class SaveCustomColors extends Component {
         // })
     }
 
-    // at 200pm
-    // })
-    // .then((res) => res.json())
-    // .then((logData) => {
-    //     return this.setState({ savedcolors: logData },
-    //         () => console.log('in savecust logdata >' + this.logdata + this.state))  // NEAT CONSOLE LOG TRICK
-    // })
-    // }
-
-    //from workoutlog
-    // .then((res) => res.json())
-    // .then((logData) => {
-    //     this.props.updateColorsArray()
-    //     this.setState({      //////// sam do i need this?????
-    //         color: '',
-    //         bordercolor: '',
-    //         fSize: ''
-    //         })
-    // })
-    // }
-
     render() {
         return (
             <form onSubmit={this.handleSubmit} >

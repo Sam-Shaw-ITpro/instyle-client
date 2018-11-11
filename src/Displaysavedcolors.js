@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React from 'react';
 import SaveCustomColors from './SaveCustomColors';
 import DisplaycolorsTable from './DisplaycolorsTable';
 
@@ -58,40 +57,11 @@ class Displaysavedcolors extends React.Component {
     }
 
 
-    //remove 
-    // testFunction = () => {
-    //     return this.state.savedcolors.map((color) => {
-    //         return (
-    //             <p>{color.description}</p>
-    //         )
-    //     })
-    // }
-
     render() {
         const savedcolors = this.state.savedcolors.length >= 1 ?
             <DisplaycolorsTable savedcolors={this.state.savedcolors}
                 delete={this.colorsDelete} update={this.setUpdatedWorkout} /> : <h2>Save a color scheme!!!</h2>
-        // return (
-        //     <Container>
-        //         <Row>
-        //             <Col md="3">                                      
-        //                 <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchWorkouts}
-        //                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize}  />
-        //             </Col>
-        //             <Col md="3">
-        //                 {savedcolors}
-        //             </Col>
-        //         </Row>
-
-        //         <Col md="12">
-        //         {/* THIS DOESN'T WORK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */}
-        //             {
         //             this.state.updatePressed ? <colorsEdit t={this.state.updatePressed} update={this.updatedWorkout} workout={this.state.workoutToUpdate} />
-        //             : <div></div>
-        //             }
-        //         </Col>
-        //     </Container>
-        // )
 
         return (
             <div>

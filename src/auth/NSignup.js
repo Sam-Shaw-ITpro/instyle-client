@@ -47,7 +47,8 @@ class NSignup extends Component {
                 <input id="username" type="text" name="username" placeholder="enter username" onChange={this.handleChange} />
                 {this.state.errorMessage && <span className="error">user name is required</span>}
                 <input id="su_password" type="password" name="password" placeholder="enter password" onChange={this.handleChange} />
-                <button type="submit"> Submit </button>
+                <button type="LOGIN"> LOGIN </button>
+                <button type="SIGNUP"> SIGNUP </button>
             </form>
         )
     }
