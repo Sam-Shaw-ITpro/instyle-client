@@ -1,6 +1,6 @@
 import React from 'react';
 // import Login from '../src/auth/Login';
-import Signup from '../src/auth/Signup';
+// import Signup from '../src/auth/Signup';
 import './index.css';
 
 class Footer extends React.Component {

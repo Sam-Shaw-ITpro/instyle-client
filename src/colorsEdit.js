@@ -1,22 +1,22 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
-class colorsEdit extends React.Component {
+class ColorsEdit extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: '',
-            result: '',
-            description: '',
-            
+            id: "",
+            color: "",
+            bordercolor: "",
+            fSize: ""
         };
     }
     componentWillMount() {
         this.setState({
-            id: this.props.workout.id,
-            result: this.props.workout.result,
-            description: this.props.workout.description,
-            definition: this.props.workout.definition
+            id: this.props.savedColor.id,
+            color: this.props.savedColor.color,
+            bordercolor: this.props.savedColor.bordercolor,
+            fSize: this.props.savedColor.fSize
         })
     }
     handleChange = (event) => {
@@ -33,25 +33,21 @@ class colorsEdit extends React.Component {
         return (
             <div>
                 <Modal isOpen={true} >
-                    <ModalHeader >Log a Workout</ModalHeader>
+                    <ModalHeader >UPDATE A COLOR</ModalHeader>
                     <ModalBody>
                         <Form onSubmit={this.handleSubmit} >
                             <FormGroup>
-                                <Label for="result">Result</Label>
-                                <Input id="result" type="text" name="result" value={this.state.result} placeholder="enter result" onChange={this.handleChange} />
+                                <Label for="color">BackGround Color</Label>
+                                <Input id="color" type="text" name="color" value={this.state.color} placeholder="enter color" onChange={this.handleChange} />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="definition">Type</Label>
-                                <Input type="select" name="definition" id="definition" value={this.state.definition} onChange={this.handleChange} placeholder="Type">
-                                    <option></option>
-                                    <option value="Time">Time</option>
-                                    <option value="Weight">Weight</option>
-                                    <option value="Distance">Distance</option>
-                                </Input>
+                                <Label for="bordercolor">bordercolor</Label>
+                                <Input type="text" name="bordercolor" id="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} placeholder="xzcxzcxz">
+                                            </Input>
                             </FormGroup>
                             <FormGroup>
-                                <Label for="description">Notes</Label>
-                                <Input id="description" type="text" name="description" value={this.state.description} placeholder="enter description" onChange={this.handleChange} />
+                                <Label for="fSize">fSize</Label>
+                                <Input id="fSize" type="text" name="fSize" value={this.state.fSize} placeholder="czxczcxz" onChange={this.handleChange} />
                             </FormGroup>
                             <Button type="submit" color="primary"> Submit </Button>
                         </Form>
@@ -61,4 +57,4 @@ class colorsEdit extends React.Component {
         )
     }
 }
-export default colorsEdit;
+export default ColorsEdit;

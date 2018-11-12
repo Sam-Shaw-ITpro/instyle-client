@@ -54,9 +54,9 @@ class ReactInStyle extends React.Component {
   logout() {
     localStorage.clear();
     // window.location.href = '/';
-}
+  }
 
-dropDownChange = (event) => {
+  dropDownChange = (event) => {
     var switchVal = event.target.value;
     // console.log("SAM IS THIS WORKING? VALUE =" + switchVal);
     switch (switchVal) {
@@ -95,7 +95,7 @@ dropDownChange = (event) => {
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <div>
-          <p>profile buttons?????</p>
+          
           <button onClick={() => this.clickLogout()}>Logout</button>
 
 
@@ -107,7 +107,7 @@ dropDownChange = (event) => {
       return (
         <div>
           <b>Don't be a loser, be a user.</b>
-           <NewAuth setToken={this.setSessionState} />
+          <NewAuth setToken={this.setSessionState} />
         </div>
       )
     }
@@ -152,8 +152,7 @@ dropDownChange = (event) => {
             <br />
             {this.protectedViews()}
           </div>
-          {/* <NewAuth setToken={this.setSessionState} /> */}
-           </div>
+        </div>
       </div>
     )
   }

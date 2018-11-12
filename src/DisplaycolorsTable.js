@@ -3,7 +3,7 @@ import React from 'react';
 const DisplaycolorsTable = (props) => {
     return (
         <div>
-            <b>Saved colors schemes</b>
+            <b>All saved color schemes.</b>
             <br />
             {props.savedcolors.map((colorList, id) => {
                 const bgcolor = { background: colorList.color, };
@@ -11,7 +11,8 @@ const DisplaycolorsTable = (props) => {
                     <div key={id} className='savedcolorsdiv' style={bgcolor}>
                         {colorList.color} {colorList.bordercolor} {colorList.fSize}
                         <button id={colorList.id} onClick={props.delete} color="danger">DELETE IT!</button>
-                        <button id={colorList.id} onClick={e => props.update(e, colorList)} color="success">NOT WORKING</button>
+                        <button id={colorList.id} onClick={e => props.update(e, colorList)} color="success">UPDATE N/W</button>
+                        <button id={colorList.id} onClick={e => props.update(e, colorList)} color="success">DISPLAY N/W</button>
                     </div>
                 )
             })
