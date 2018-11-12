@@ -88,12 +88,12 @@ form {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
   display: inline-block;
   /* float: right; */
-  width: 55%;
+  width: 100%;
   font-size: 80%;
   font-weight: bold;
-  background-color: black;
+  /* background-color: black; */
   text-align: center;
-color: orange;
+/* color: orange; */
 }
 
 big {

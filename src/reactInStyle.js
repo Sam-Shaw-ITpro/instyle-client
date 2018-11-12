@@ -28,7 +28,7 @@ class ReactInStyle extends React.Component {
     this.setState({ sessionToken: token });
   }
 
-  logout = () => {
+  clickLogout = () => {
     this.setState({ sessionToken: '' });
     localStorage.clear();
   }
@@ -51,7 +51,12 @@ class ReactInStyle extends React.Component {
     })
   }
 
-  dropDownChange = (event) => {
+  logout() {
+    localStorage.clear();
+    // window.location.href = '/';
+}
+
+dropDownChange = (event) => {
     var switchVal = event.target.value;
     // console.log("SAM IS THIS WORKING? VALUE =" + switchVal);
     switch (switchVal) {
@@ -87,17 +92,23 @@ class ReactInStyle extends React.Component {
   // this is from app.js in workoutlogclient
   protectedViews = () => {
     console.log('token here?' + this.state.sessionToken)
-      if (this.state.sessionToken === localStorage.getItem('token')) {
+    if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
-     <div>   
-       <p>in the protected area</p>
-        <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
-        color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
-</div>
+        <div>
+          <p>profile buttons?????</p>
+          <button onClick={() => this.clickLogout()}>Logout</button>
+
+
+          <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
+            color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
+        </div>
       )
     } else {
       return (
-<div></div>
+        <div>
+          <b>Don't be a loser, be a user.</b>
+           <NewAuth setToken={this.setSessionState} />
+        </div>
       )
     }
   }
@@ -117,37 +128,33 @@ class ReactInStyle extends React.Component {
 
     return (
       <div>
-            <div id="color-time-id" style={stylesObj} className="container">
-        <br />
-        <div id="color-time-id2" style={stylesObj2} className="box">
-          <p style={pStyle}>Pre-programmed inStyle color schemes.</p>
-          <select onChange={this.dropDownChange}>
-            <option>PRE-SELECTED OPTIONS</option>
-            <option value="0">Option 1</option>
-            <option value="1">Option 2</option>
-            <option value="2">Option 3</option>
-          </select>
+        <div id="color-time-id" style={stylesObj} className="container">
+          <br />
+          <div id="color-time-id2" style={stylesObj2} className="box">
+            <p style={pStyle}>Pre-programmed inStyle color schemes.</p>
+            <select onChange={this.dropDownChange}>
+              <option>PRE-SELECTED OPTIONS</option>
+              <option value="0">Option 1</option>
+              <option value="1">Option 2</option>
+              <option value="2">Option 3</option>
+            </select>
 
-          <p style={pStyle}>Set background color (Name or #HEX).</p>
-          <input style={pStyle} name="backgroundcolor" value={this.state.color} onChange={this.changeColor.bind(this)} />
-          <br />
-          <br />
-          <p style={pStyle}>Set border, example: 20px solid blue</p>
-          <input style={pStyle} name="borderColor" value={this.state.bordercolor} onChange={this.changeBorder.bind(this)} />
-          <br />
-          <br />
-          <p style={pStyle}>Set font size, for example: 15px</p>
-          <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
-          <br />
-        </div>
-        {/* <p> auth is commited out here. </p> */}
-<NewAuth setToken={this.setSessionState} />
-        {/* <p> uncomment displaysaved colors in reactinstyle</p> */}
-        {/* <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
-        color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} /> */}
-        {this.protectedViews()}
+            <p style={pStyle}>Set background color (Name or #HEX).</p>
+            <input style={pStyle} name="backgroundcolor" value={this.state.color} onChange={this.changeColor.bind(this)} />
+            <br />
+            <br />
+            <p style={pStyle}>Set border, example: 20px solid blue</p>
+            <input style={pStyle} name="borderColor" value={this.state.bordercolor} onChange={this.changeBorder.bind(this)} />
+            <br />
+            <br />
+            <p style={pStyle}>Set font size, for example: 15px</p>
+            <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
+            <br />
+            {this.protectedViews()}
+          </div>
+          {/* <NewAuth setToken={this.setSessionState} /> */}
+           </div>
       </div>
-</div>
     )
   }
 }

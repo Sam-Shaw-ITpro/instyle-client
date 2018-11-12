@@ -1,9 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
 import './index.css';
-import NewAuth from './auth/NewAuth'
-import Auth from './auth/Auth'
-
 
 class NNavbar extends React.Component {
   constructor(props) {

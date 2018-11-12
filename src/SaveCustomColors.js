@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import reactInStyle from "./reactInStyle";
 import "./index.css";
 
 class SaveCustomColors extends Component {
@@ -13,11 +11,10 @@ class SaveCustomColors extends Component {
         };
     }
 
-    componentWillMount() {
-        console.log('console state  ' + this.state.color + this.state.fSize + this.state.bordercolor)
-        console.log('and this.state  ' + this.state)
-    }
-
+    // componentWillMount() {
+    //     console.log('console state  ' + this.state.color + this.state.fSize + this.state.bordercolor)
+    //     console.log('and this.state  ' + this.state)
+    // }
 
     handleChange = (event) => {
         this.setState({
@@ -51,12 +48,11 @@ class SaveCustomColors extends Component {
                     onChange={this.handleChange} />
                 {/* <label for="fSize"></label> */}
                 <input type="text" name="fSize" id="fSize" value={this.state.fSize}
-                    onChange={this.handleChange} placeholder="Type" onChange={this.handleChange} />
+                    onChange={this.handleChange} />
                 {/* <label for="bordercolor"></label> */}
-                <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} placeholder="enter bordercolor" onChange={this.handleChange} />
-                <button type="submit">Save color scheme!!</button>
+                <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
+                <button type="submit">Save your current color scheme!! NOT WORKING RIGHT</button>
             </form>
-
         )
     }
 }
