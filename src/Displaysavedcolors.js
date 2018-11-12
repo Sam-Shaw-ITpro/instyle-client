@@ -8,9 +8,11 @@ class Displaysavedcolors extends React.Component {
         super(props)
         this.state = {
             savedcolors: [],
-            updatePressed: false, // added this line
-            colorsToUpdate: {} // added this line
-
+            updatePressed: false,
+            colorsToUpdate: {}, 
+            color: props.color,
+            bordercolor: props.bordercolor,
+            fSize: props.fSize,
         }
     }
     componentWillMount() {
@@ -72,12 +74,19 @@ class Displaysavedcolors extends React.Component {
         })
     }
 
-
+    colorsDisplay = (event, savedColor) => {
+        this.setState({
+            color: savedColor.color,
+            bordercolor: savedColor.bordercolor,
+            fSize: savedColor.fSize,
+        })
+        console.log(this.state);
+    }
 
     render() {
         const savedcolors = this.state.savedcolors.length >= 1 ?
             <DisplaycolorsTable savedcolors={this.state.savedcolors}
-                delete={this.colorsDelete} update={this.setupdatedColor} /> : <h2>Save a color scheme!!!</h2>
+                display={this.colorsDisplay} delete={this.colorsDelete} update={this.setupdatedColor} /> : <h2>Save a color scheme!!!</h2>
 
         return (
             <div>
