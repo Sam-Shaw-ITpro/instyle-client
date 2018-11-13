@@ -11,8 +11,22 @@ class ReactInStyle extends React.Component {
       color: "darkgrey",
       bordercolor: "3px dotted black",
       fSize: "20px",
-      sessionToken: ''
+      sessionToken: '',
+      testingColors: 'something',
     };
+    this.testInMain = this.testInMain.bind(this);
+  }
+
+  testInMain() {
+    this.setState({
+      // color: this.props.color,
+      // bordercolor: this.props.bordercolor,
+      // fSize: this.props.fSize,
+      color: 'purple',
+      borderColor: '10px solid blue',
+      fSize: '25px',
+      testingColors: this.colorList,
+    })
   }
 
   componentWillMount() {
@@ -94,12 +108,12 @@ class ReactInStyle extends React.Component {
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <div>
-          
-          <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
+
+          <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken}
             color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
-              
-       <button onClick={() => this.clickLogout()}>Logout</button>
-       
+
+          <button onClick={() => this.clickLogout()}>Logout</button>
+
         </div>
       )
     } else {
@@ -127,32 +141,31 @@ class ReactInStyle extends React.Component {
 
     return (
       // <div>
-        <div id="color-time-id" style={stylesObj} className="container">
+      <div id="color-time-id" style={stylesObj} className="container">
+        <br />
+        <div id="color-time-id2" style={stylesObj2} className="box">
+          <p style={pStyle}>Pre-programmed inStyle color schemes.</p>
+          <select onChange={this.dropDownChange}>
+            <option>PRE-SELECTED OPTIONS</option>
+            <option value="0">Option 1</option>
+            <option value="1">Option 2</option>
+            <option value="2">Option 3</option>
+          </select>
+          <p style={pStyle}>Set background color (Name or #HEX).</p>
+          <input style={pStyle} name="backgroundcolor" value={this.state.color} onChange={this.changeColor.bind(this)} />
           <br />
-          <div id="color-time-id2" style={stylesObj2} className="box">
-            <p style={pStyle}>Pre-programmed inStyle color schemes.</p>
-            <select onChange={this.dropDownChange}>
-              <option>PRE-SELECTED OPTIONS</option>
-              <option value="0">Option 1</option>
-              <option value="1">Option 2</option>
-              <option value="2">Option 3</option>
-            </select>
-
-            <p style={pStyle}>Set background color (Name or #HEX).</p>
-            <input style={pStyle} name="backgroundcolor" value={this.state.color} onChange={this.changeColor.bind(this)} />
-            <br />
-            <br />
-            <p style={pStyle}>Set border, example: 20px solid blue</p>
-            <input style={pStyle} name="borderColor" value={this.state.bordercolor} onChange={this.changeBorder.bind(this)} />
-            <br />
-            <br />
-            <p style={pStyle}>Set font size, for example: 15px</p>
-            <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
-            <br />
-            {/* {this.protectedViews()} */}
-          </div>
-          {this.protectedViews()}
+          <br />
+          <p style={pStyle}>Set border, example: 20px solid blue</p>
+          <input style={pStyle} name="borderColor" value={this.state.bordercolor} onChange={this.changeBorder.bind(this)} />
+          <br />
+          <br />
+          <p style={pStyle}>Set font size, for example: 15px</p>
+          <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
+          <br />
+          {/* {this.protectedViews()} */}
         </div>
+        {this.protectedViews()}
+      </div>
       // </div>
     )
   }

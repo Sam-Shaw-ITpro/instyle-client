@@ -10,13 +10,22 @@ class Displaysavedcolors extends React.Component {
             savedcolors: [],
             updatePressed: false,
             colorsToUpdate: {}, 
-            color: props.color,
-            bordercolor: props.bordercolor,
-            fSize: props.fSize,
+            color: "",
+            bordercolor: "",
+            fSize: "",
         }
+        // this.colorsDisplay = this.colorsDisplay.bind(this)
     }
     componentWillMount() {
         this.fetchColors()
+        this.setState({
+            color: this.props.color,
+            bordercolor: this.props.bordercolor,
+            fSize: this.props.fSize
+        }, console.log("state:", this.state))
+        console.log("props:", this.props)
+        
+
     }
 
     fetchColors = () => {
@@ -73,19 +82,20 @@ class Displaysavedcolors extends React.Component {
             updatePressed: true,
             
         })
-      }
-
+    }
+    
     colorsDisplay = (event, savedColor) => {
+        console.log(savedColor)
         this.setState({
             color: savedColor.color,
             bordercolor: savedColor.bordercolor,
             fSize: savedColor.fSize,
-        })
+        }, console.log(this.state))
       }
 
     render() {
         const savedcolors = this.state.savedcolors.length >= 1 ?
-            <DisplaycolorsTable savedcolors={this.state.savedcolors}
+            <DisplaycolorsTable test={this.props.test} savedcolors={this.state.savedcolors}
                 display={this.colorsDisplay} delete={this.colorsDelete} update={this.setupdatedColor} /> : <h2>Save a color scheme!!!</h2>
 
         return (

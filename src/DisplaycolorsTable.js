@@ -12,7 +12,7 @@ const DisplaycolorsTable = (props) => {
                         {colorList.color} {colorList.bordercolor} {colorList.fSize}
                         <button id={colorList.id} onClick={props.delete} color="danger">DELETE IT!</button>
                         <button id={colorList.id} onClick={e => props.update(e, colorList)} color="success">UPDATE IT!</button>
-                        <button id={colorList.id} onClick={e => props.display(e, colorList)} color="success">DISPLAY N/W</button>
+                        <button id={colorList.id} onClick={e => props.test(e, colorList)} color="success">DISPLAY N/W</button>
              </div>
                 )
             })

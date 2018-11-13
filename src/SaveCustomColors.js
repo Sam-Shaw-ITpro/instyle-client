@@ -11,6 +11,8 @@ class SaveCustomColors extends Component {
         };
     }
 
+// set state to props in component did mount
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
