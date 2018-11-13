@@ -11,11 +11,6 @@ class SaveCustomColors extends Component {
         };
     }
 
-    // componentWillMount() {
-    //     console.log('console state  ' + this.state.color + this.state.fSize + this.state.bordercolor)
-    //     console.log('and this.state  ' + this.state)
-    // }
-
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -53,8 +48,8 @@ class SaveCustomColors extends Component {
                 <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
                 <button type="submit">Save your current color scheme!! NOT WORKING RIGHT</button>
             </form>
-        )
+        ) 
     }
-}
+} 
 
 export default SaveCustomColors;

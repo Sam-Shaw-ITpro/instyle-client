@@ -13,6 +13,7 @@ class NNavbar extends React.Component {
  return (
   
     <div className="nbar">
+    <img src={ require('./assets/s.gif')} alt="logo" height="100" width="100" />
   <big>React inStyle</big>
       </div>
   )

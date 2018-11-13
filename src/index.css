@@ -52,7 +52,7 @@ body {
 .nbar {
   display: inline-block;
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   background-color: black;
   color: darkgrey;
@@ -99,7 +99,8 @@ form {
 big {
  display: inline-block;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
- padding: 15px;
+ /* padding: 100px, 0px, 0px, 0px; */
+ margin: 0px;;
   width: 45%;
  font-size: 300%;
   font-weight: bold;

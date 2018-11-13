@@ -7,7 +7,6 @@ const DisplaycolorsTable = (props) => {
             <br />
             {props.savedcolors.map((colorList, id) => {
                 const bgcolor = { background: colorList.color, };
-                // return ( console.log(colorList.color + colorList.bordercolor + colorList.fSize));
                 return (
                     <div key={id} className='savedcolorsdiv' style={bgcolor}>
                         {colorList.color} {colorList.bordercolor} {colorList.fSize}

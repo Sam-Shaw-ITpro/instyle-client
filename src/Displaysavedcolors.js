@@ -70,9 +70,10 @@ class Displaysavedcolors extends React.Component {
     setupdatedColor = (event, savedColor) => {
         this.setState({
             colorsToUpdate: savedColor,
-            updatePressed: true
+            updatePressed: true,
+            
         })
-    }
+      }
 
     colorsDisplay = (event, savedColor) => {
         this.setState({
@@ -80,8 +81,7 @@ class Displaysavedcolors extends React.Component {
             bordercolor: savedColor.bordercolor,
             fSize: savedColor.fSize,
         })
-        console.log(this.state);
-    }
+      }
 
     render() {
         const savedcolors = this.state.savedcolors.length >= 1 ?

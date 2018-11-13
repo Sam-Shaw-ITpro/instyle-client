@@ -3,14 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import NewAuth from './auth/NewAuth';
 import Displaysavedcolors from "./Displaysavedcolors";
-import NNavbar from './NNavbar';
 
 class ReactInStyle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: "orangered",
-      bordercolor: "5px dotted black",
+      color: "darkgrey",
+      bordercolor: "3px dotted black",
       fSize: "20px",
       sessionToken: ''
     };
@@ -96,11 +95,11 @@ class ReactInStyle extends React.Component {
       return (
         <div>
           
-          <button onClick={() => this.clickLogout()}>Logout</button>
-
-
           <Displaysavedcolors setToken={this.setSessionState} token={this.state.sessionToken}
             color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
+              
+       <button onClick={() => this.clickLogout()}>Logout</button>
+       
         </div>
       )
     } else {
@@ -127,7 +126,7 @@ class ReactInStyle extends React.Component {
     };
 
     return (
-      <div>
+      // <div>
         <div id="color-time-id" style={stylesObj} className="container">
           <br />
           <div id="color-time-id2" style={stylesObj2} className="box">
@@ -150,10 +149,11 @@ class ReactInStyle extends React.Component {
             <p style={pStyle}>Set font size, for example: 15px</p>
             <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
             <br />
-            {this.protectedViews()}
+            {/* {this.protectedViews()} */}
           </div>
+          {this.protectedViews()}
         </div>
-      </div>
+      // </div>
     )
   }
 }
