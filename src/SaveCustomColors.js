@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./index.css";
+import APIURL from "./helpers/environment"
 
 class SaveCustomColors extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class SaveCustomColors extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/api/fav/create`, {
+        fetch(`${APIURL}/api/fav/create`, {
             method: 'POST',
                   body: JSON.stringify(this.state),
             headers: new Headers({

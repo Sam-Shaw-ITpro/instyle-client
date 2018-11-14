@@ -2,6 +2,7 @@ import React from 'react';
 import SaveCustomColors from './SaveCustomColors';
 import DisplaycolorsTable from './DisplaycolorsTable';
 import ColorsEdit from './ColorsEdit';
+import APIURL from "./helpers/environment"
 
 class Displaysavedcolors extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Displaysavedcolors extends React.Component {
     }
 
     fetchColors = () => {
-        fetch("http://localhost:3000/api/fav/all", {
+        fetch(`${APIURL}/api/fav/all`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ class Displaysavedcolors extends React.Component {
     }
 
     colorsDelete = (event) => {
-        fetch(`http://localhost:3000/api/fav/delete/${event.target.id}`, {
+        fetch(`${APIURL}/api/fav/delete/${event.target.id}`, {
             method: 'DELETE',
             body: JSON.stringify({ log: { id: event.target.id } }),
             headers: new Headers({
@@ -56,7 +57,7 @@ class Displaysavedcolors extends React.Component {
     }
 
     updatedColor = (event, savedColor) => {
-        fetch(`http://localhost:3000/api/fav/update/${savedColor.id}`, {
+        fetch(`${APIURL}/api/fav/update/${savedColor.id}`, {
             method: 'PUT',
             // body: JSON.stringify({ log: savedColor }),
             body: JSON.stringify(savedColor),

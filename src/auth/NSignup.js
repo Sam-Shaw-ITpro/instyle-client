@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import APIURL from "../helpers/environment"
 
 class NSignup extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class NSignup extends Component {
     }
 
     handleSubmit = (event) => {
-        fetch("http://localhost:3000/api/user/createuser", {
+        fetch(`${APIURL}/api/user/createuser`, {
             method: 'POST',
             body: JSON.stringify({ user: this.state }),
             headers: new Headers({

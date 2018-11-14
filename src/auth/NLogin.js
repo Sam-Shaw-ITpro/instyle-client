@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import APIURL from "../helpers/environment"
 
 class Login extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class Login extends Component {
     }
 
     handleSubmit = (event) => {
-        fetch("http://localhost:3000/api/user/login", {
+        fetch(`${APIURL}/api/user/login`, {
             method: 'POST',
             body: JSON.stringify({ user: this.state }),
             headers: new Headers({
