@@ -8,24 +8,26 @@ class ReactInStyle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      color: "darkgrey",
-      bordercolor: "3px dotted black",
-      fSize: "20px",
+      color: "",
+      bordercolor: "",
+      fSize: "",
+      // color: "white",
+      // bordercolor: "3px solid black",
+      // fSize: "20px",
       sessionToken: '',
-      testingColors: 'something',
-    };
+      };
     this.testInMain = this.testInMain.bind(this);
   }
 
-  testInMain() {
+  testInMain(e, theme) {
     this.setState({
-      // color: this.props.color,
-      // bordercolor: this.props.bordercolor,
-      // fSize: this.props.fSize,
-      color: 'purple',
-      borderColor: '10px solid blue',
-      fSize: '25px',
-      testingColors: this.colorList,
+      color: theme.color,
+      bordercolor: theme.bordercolor,
+      fSize: theme.fSize,
+      // color: 'purple',
+      // borderColor: '10px solid blue',
+      // fSize: '25px',
+      // testingColors: this.colorList,
     })
   }
 
@@ -112,6 +114,9 @@ class ReactInStyle extends React.Component {
           <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken}
             color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
 
+      {/* <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken} /> */}
+
+
           <button onClick={() => this.clickLogout()}>Logout</button>
 
         </div>
@@ -119,7 +124,7 @@ class ReactInStyle extends React.Component {
     } else {
       return (
         <div>
-          <b>Don't be a loser, be a user.</b>
+          <b>Don't be a loser, be a user so you can save your color schemes.</b>
           <NewAuth setToken={this.setSessionState} />
         </div>
       )

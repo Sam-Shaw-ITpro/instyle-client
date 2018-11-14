@@ -1,16 +1,9 @@
 body {
-  /* margin: 0; */
-  /* display: block; */
-  /* text-align: center; */
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* code { */
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
-/* } */
 
 .container {
   position: static;
@@ -50,22 +43,18 @@ body {
 }
 
 .nbar {
-  display: inline-block;
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
-  padding: 10px;
+  /* display: inline-block; */
   width: 100%;
   background-color: black;
   color: darkgrey;
+  /* height: 100px; */
 }
 
 .fortyfive {
-  /* display: inline-block; */
-  /* float: right; */
+  display: inline-block;
+  /* padding: 20px; */
   width: 45%;
-  /* font-size: 80%; */
-  /* font-weight: bold; */
-  /* background-color:grey; */
-/* color: orange; */
+  margin: auto;
 }
 
 .savedcolorsdiv {
@@ -75,7 +64,6 @@ body {
   height: 120px;
   font-size: 70%;
   font-weight: bold;
-  /* background-color: black; */
   text-align: center;
   color: white;
   border-radius: 5px;
@@ -83,36 +71,27 @@ body {
   border: 2px solid black;
 }
 
-
 form {
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
   display: inline-block;
-  /* float: right; */
   width: 100%;
   font-size: 80%;
   font-weight: bold;
-  /* background-color: black; */
   text-align: center;
-/* color: orange; */
 }
 
 big {
- display: inline-block;
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
- /* padding: 100px, 0px, 0px, 0px; */
- margin: 0px;;
-  width: 45%;
- font-size: 300%;
-  font-weight: bold;
   text-align: left;
-}
+ margin: 30px;
+ font-size: 400%;
+  font-weight: bold;
+  /* padding: 80px, 0px, 0px, 0px; */
+ }
 
 .footerdiv {
   width: 100%;
-  /* display: inline-block; */
   background-color: black;
   color: darkgrey;
-  /* font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; */
 }
 
 input {
@@ -120,9 +99,5 @@ input {
   background: white;
   border: 4;
   margin: 5px;
-  /* border: 5px solid darkgray; */
-  /* font-weight:bold; */
   padding: 3px;
-  /* outline: 50; */
-  /* border-radius: 2px; */
   };
