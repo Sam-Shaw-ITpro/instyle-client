@@ -17,13 +17,15 @@ class Displaysavedcolors extends React.Component {
         }
     }
 
+    // displayarray
+
     componentWillMount() {
         this.fetchColors()
         this.setState({
             color: this.props.color,
             bordercolor: this.props.bordercolor,
             fSize: this.props.fSize
-        }, console.log("state"))
+        })
     }
 
     fetchColors = () => {
@@ -77,12 +79,11 @@ class Displaysavedcolors extends React.Component {
     }
 
     colorsDisplay = (event, savedColor) => {
-        console.log(savedColor)
         this.setState({
             color: savedColor.color,
             bordercolor: savedColor.bordercolor,
             fSize: savedColor.fSize,
-        }, console.log(this.state))
+        })
     }
 
     render() {

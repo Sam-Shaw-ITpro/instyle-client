@@ -13,10 +13,7 @@ class ReactInStyle extends React.Component {
       color: "",
       bordercolor: "",
       fSize: "",
-      sessionToken: "",
-      savedcolors: [],
-      updatePressed: false,
-      colorsToUpdate: {},
+      sessionToken: '',
     };
     this.testInMain = this.testInMain.bind(this);
   }
@@ -129,22 +126,27 @@ class ReactInStyle extends React.Component {
       .then((res) => res.json())
       .then((logData) => {
         return this.setState({ savedcolors: logData },
-          () => console.log('in fetch' + this.state))  // NEAT CONSOLE LOG TRICK
-      })
+            () => console.log(this.state))  // NEAT CONSOLE LOG TRICK
+    })
   }
 
   protectedViews = () => {
-    // console.log('token here?' + this.state.sessionToken)
+    console.log('token here?' + this.state.sessionToken)
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <div>
           <form onSubmit={this.handleSubmit} >
+            {/* <input id="color" type="text" name="color" value={this.state.color}
+              onChange={this.handleChange} />
+            <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
+            <input type="text" name="fSize" id="fSize" value={this.state.fSize}
+              onChange={this.handleChange} /> */}
             <button type="submit">Save your current color scheme!!</button>
           </form>
           <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken}
-            color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} savedcolors={this.state.savedcolors} />
+            color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
           <button onClick={() => this.clickLogout()}>Logout</button>
-        </div>
+             </div>
       )
     } else {
       return (
