@@ -23,10 +23,6 @@ class ReactInStyle extends React.Component {
       color: theme.color,
       bordercolor: theme.bordercolor,
       fSize: theme.fSize,
-      // color: 'purple',
-      // borderColor: '10px solid blue',
-      // fSize: '25px',
-      // testingColors: this.colorList,
     })
   }
 
@@ -67,12 +63,10 @@ class ReactInStyle extends React.Component {
 
   logout() {
     localStorage.clear();
-    // window.location.href = '/';
   }
 
   dropDownChange = (event) => {
     var switchVal = event.target.value;
-    // console.log("SAM IS THIS WORKING? VALUE =" + switchVal);
     switch (switchVal) {
       case "0":
         this.setState({
@@ -80,7 +74,6 @@ class ReactInStyle extends React.Component {
           bordercolor: "30px dotted black",
           fSize: "25px"
         })
-        // console.log("INSIDE 0");
         break;
       case "1":
         this.setState({
@@ -88,7 +81,6 @@ class ReactInStyle extends React.Component {
           bordercolor: "5px dotted blue",
           fSize: "15px"
         })
-        // console.log("INSIDE 1");
         break;
       case "2":
         this.setState({
@@ -96,14 +88,12 @@ class ReactInStyle extends React.Component {
           bordercolor: "25px solid red",
           fSize: "20px"
         })
-        // console.log("INSIDE 2");
         break;
       default:
         console.log('switch default');
     }
   }
 
-  /* ADDED 11-14 */
 
   handleChange = (event) => {
     this.setState({
@@ -115,51 +105,48 @@ class ReactInStyle extends React.Component {
     event.preventDefault();
     fetch(`${APIURL}/api/fav/create`, {
       method: 'POST',
-      // body: JSON.stringify(this.state),
-      body: JSON.stringify(`{"color": "${this.state.color}","bordercolor": "${this.state.bordercolor}","fSize": "${this.state.fSize}"}`),
+      body: JSON.stringify(this.state),
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': this.props.token
+        'Authorization': this.state.sessionToken
+      })
+    })
+      .then((res) => this.fetchColors())
+  }
+
+  fetchColors = () => {
+    console.log("fetchColors")
+    fetch(`${APIURL}/api/fav/all`, {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': this.state.sessionToken
       })
     })
       .then((res) => res.json())
+      .then((logData) => {
+        return this.setState({ savedcolors: logData },
+            () => console.log(this.state))  // NEAT CONSOLE LOG TRICK
+    })
   }
-  // .then(() => {
-  //   return this.setState({},
-  //      () => console.log('in logdata ' + this.state.color))  // NEAT CONSOLE LOG TRICK
-  //  })
 
   protectedViews = () => {
     console.log('token here?' + this.state.sessionToken)
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <div>
-          {/* ADDED 11-14 */}
           <form onSubmit={this.handleSubmit} >
-            {/* <label for="color"></label> */}
-            <input id="color" type="text" name="color" value={this.state.color}
+            {/* <input id="color" type="text" name="color" value={this.state.color}
               onChange={this.handleChange} />
-            {/* <label for="bordercolor"></label> */}
             <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
-            {/* <label for="fSize"></label> */}
             <input type="text" name="fSize" id="fSize" value={this.state.fSize}
-              onChange={this.handleChange} />
-            <button type="submit">Save your current color scheme!! NOT WORKING RIGHT</button>
+              onChange={this.handleChange} /> */}
+            <button type="submit">Save your current color scheme!!</button>
           </form>
-
-          {/* <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchColors}
-                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize} /> */}
-
-          {/* ================================11-14=================================================== */}
           <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken}
             color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
-
-          {/* <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken} /> */}
-
-
           <button onClick={() => this.clickLogout()}>Logout</button>
-
-        </div>
+             </div>
       )
     } else {
       return (
@@ -185,7 +172,6 @@ class ReactInStyle extends React.Component {
     };
 
     return (
-      // <div>
       <div id="color-time-id" style={stylesObj} className="container">
         <br />
         <div id="color-time-id2" style={stylesObj2} className="box">
@@ -207,11 +193,9 @@ class ReactInStyle extends React.Component {
           <p style={pStyle}>Set font size, for example: 15px</p>
           <input style={pStyle} name="fontsize" value={this.state.fSize} placeholder="example: 15px" onChange={this.changefSize.bind(this)} />
           <br />
-          {/* {this.protectedViews()} */}
         </div>
         {this.protectedViews()}
       </div>
-      // </div>
     )
   }
 }

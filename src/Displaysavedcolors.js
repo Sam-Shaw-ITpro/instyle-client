@@ -1,7 +1,7 @@
 import React from 'react';
 import SaveCustomColors from './SaveCustomColors';
 import DisplaycolorsTable from './DisplaycolorsTable';
-import ColorsEdit from "./colorEdit"
+import ColorsEdit from "./colorEdit";
 import APIURL from "./helpers/environment"
 
 class Displaysavedcolors extends React.Component {
@@ -10,23 +10,20 @@ class Displaysavedcolors extends React.Component {
         this.state = {
             savedcolors: [],
             updatePressed: false,
-            colorsToUpdate: {}, 
+            colorsToUpdate: {},
             color: "",
             bordercolor: "",
             fSize: "",
         }
-        // this.colorsDisplay = this.colorsDisplay.bind(this)
     }
+
     componentWillMount() {
         this.fetchColors()
         this.setState({
             color: this.props.color,
             bordercolor: this.props.bordercolor,
             fSize: this.props.fSize
-        }, console.log("state:", this.state))
-        console.log("props:", this.props)
-        
-
+        }, console.log("state"))
     }
 
     fetchColors = () => {
@@ -59,7 +56,6 @@ class Displaysavedcolors extends React.Component {
     updatedColor = (event, savedColor) => {
         fetch(`${APIURL}/api/fav/update/${savedColor.id}`, {
             method: 'PUT',
-            // body: JSON.stringify({ log: savedColor }),
             body: JSON.stringify(savedColor),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -70,21 +66,16 @@ class Displaysavedcolors extends React.Component {
                 this.setState({ updatePressed: false })
                 this.fetchColors();
             })
-            // .then((logData) => {
-            //         return this.setState({ savedcolors: logData },
-            //             () => console.log(this.state))
-            //     })
-            
     }
 
     setupdatedColor = (event, savedColor) => {
         this.setState({
             colorsToUpdate: savedColor,
             updatePressed: true,
-            
+
         })
     }
-    
+
     colorsDisplay = (event, savedColor) => {
         console.log(savedColor)
         this.setState({
@@ -92,7 +83,7 @@ class Displaysavedcolors extends React.Component {
             bordercolor: savedColor.bordercolor,
             fSize: savedColor.fSize,
         }, console.log(this.state))
-      }
+    }
 
     render() {
         const savedcolors = this.state.savedcolors.length >= 1 ?
@@ -101,11 +92,6 @@ class Displaysavedcolors extends React.Component {
 
         return (
             <div>
-                <div>
-                    {/* commented out 11-14 */}
-                    {/* <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchColors}
-                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize} /> */}
-                </div>
                 {savedcolors}
                 <div>
                     {this.state.updatePressed ? <ColorsEdit t={this.state.updatePressed} update={this.updatedColor} savedColor={this.state.colorsToUpdate} />
