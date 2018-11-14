@@ -23,8 +23,7 @@ class SaveCustomColors extends Component {
         event.preventDefault();
         fetch(`http://localhost:3000/api/fav/create`, {
             method: 'POST',
-            // body: JSON.stringify({ fav: this.state }),
-            body: JSON.stringify(this.state),
+                  body: JSON.stringify(this.state),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -50,6 +49,10 @@ class SaveCustomColors extends Component {
                 <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
                 <button type="submit">Save your current color scheme!! NOT WORKING RIGHT</button>
             </form>
+
+            
+//    <button id={colorList.id}  onClick={e => props.test(e, colorList)} color="success">DISPLAY IT!</button>
+
         ) 
     }
 } 

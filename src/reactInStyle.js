@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import NewAuth from './auth/NewAuth';
 import Displaysavedcolors from "./Displaysavedcolors";
+import SaveCustomColors from './SaveCustomColors';
 
 class ReactInStyle extends React.Component {
   constructor(props) {
@@ -11,11 +12,8 @@ class ReactInStyle extends React.Component {
       color: "",
       bordercolor: "",
       fSize: "",
-      // color: "white",
-      // bordercolor: "3px solid black",
-      // fSize: "20px",
       sessionToken: '',
-      };
+    };
     this.testInMain = this.testInMain.bind(this);
   }
 
@@ -104,17 +102,58 @@ class ReactInStyle extends React.Component {
     }
   }
 
-  // this is from app.js in workoutlogclient
+  /* ADDED 11-14 */
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    fetch(`http://localhost:3000/api/fav/create`, {
+      method: 'POST',
+      // body: JSON.stringify(this.state),
+      body: JSON.stringify(`{"color": "${this.state.color}","bordercolor": "${this.state.bordercolor}","fSize": "${this.state.fSize}"}`),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': this.props.token
+      })
+    })
+      .then((res) => res.json())
+  }
+  // .then(() => {
+  //   return this.setState({},
+  //      () => console.log('in logdata ' + this.state.color))  // NEAT CONSOLE LOG TRICK
+  //  })
+
   protectedViews = () => {
     console.log('token here?' + this.state.sessionToken)
     if (this.state.sessionToken === localStorage.getItem('token')) {
       return (
         <div>
+          {/* ADDED 11-14 */}
+          <form onSubmit={this.handleSubmit} >
+            {/* <label for="color"></label> */}
+            <input id="color" type="text" name="color" value={this.state.color}
+              onChange={this.handleChange} />
+            {/* <label for="bordercolor"></label> */}
+            <input id="bordercolor" type="text" name="bordercolor" value={this.state.bordercolor} onChange={this.handleChange} />
+            {/* <label for="fSize"></label> */}
+            <input type="text" name="fSize" id="fSize" value={this.state.fSize}
+              onChange={this.handleChange} />
+            <button type="submit">Save your current color scheme!! NOT WORKING RIGHT</button>
+          </form>
 
+          {/* <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchColors}
+                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize} /> */}
+
+          {/* ================================11-14=================================================== */}
           <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken}
             color={this.state.color} bordercolor={this.state.bordercolor} fSize={this.state.fSize} />
 
-      {/* <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken} /> */}
+          {/* <Displaysavedcolors test={this.testInMain} setToken={this.setSessionState} token={this.state.sessionToken} /> */}
 
 
           <button onClick={() => this.clickLogout()}>Logout</button>
@@ -157,15 +196,15 @@ class ReactInStyle extends React.Component {
             <option value="2">Option 3</option>
           </select>
           <p style={pStyle}>Set background color (Name or #HEX).</p>
-          <input style={pStyle} name="backgroundcolor" value={this.state.color} onChange={this.changeColor.bind(this)} />
+          <input style={pStyle} name="backgroundcolor" value={this.state.color} placeholder="example: white" onChange={this.changeColor.bind(this)} />
           <br />
           <br />
           <p style={pStyle}>Set border, example: 20px solid blue</p>
-          <input style={pStyle} name="borderColor" value={this.state.bordercolor} onChange={this.changeBorder.bind(this)} />
+          <input style={pStyle} name="borderColor" value={this.state.bordercolor} placeholder="example: 20px solid blue" onChange={this.changeBorder.bind(this)} />
           <br />
           <br />
           <p style={pStyle}>Set font size, for example: 15px</p>
-          <input style={pStyle} name="fontsize" value={this.state.fSize} onChange={this.changefSize.bind(this)} />
+          <input style={pStyle} name="fontsize" value={this.state.fSize} placeholder="example: 15px" onChange={this.changefSize.bind(this)} />
           <br />
           {/* {this.protectedViews()} */}
         </div>

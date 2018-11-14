@@ -101,8 +101,9 @@ class Displaysavedcolors extends React.Component {
         return (
             <div>
                 <div>
-                    <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchColors}
-                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize} />
+                    {/* commented out 11-14 */}
+                    {/* <SaveCustomColors token={this.props.token} updateColorsArray={this.fetchColors}
+                        color={this.props.color} bordercolor={this.props.bordercolor} fSize={this.props.fSize} /> */}
                 </div>
                 {savedcolors}
                 <div>

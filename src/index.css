@@ -82,7 +82,8 @@ form {
 big {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   text-align: left;
- margin: 30px;
+ /* margin: 3.5em, 0em, 0em, 0em; */
+ /* padding: 1em; */
  font-size: 400%;
   font-weight: bold;
   /* padding: 80px, 0px, 0px, 0px; */
