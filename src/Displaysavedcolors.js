@@ -1,7 +1,7 @@
 import React from 'react';
 import SaveCustomColors from './SaveCustomColors';
 import DisplaycolorsTable from './DisplaycolorsTable';
-import ColorsEdit from "./ColorsEdit"
+import ColorsEdit from "../src/ColorsEdit"
 import APIURL from "./helpers/environment"
 
 class Displaysavedcolors extends React.Component {
